@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Extractor SENAMHI</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/styles.css') }}" />
+  </head>
+  <body>
+    <main class="container">
+      <section class="card">
+        <p class="eyebrow">FastAPI + Python + Web Scraping</p>
+        <h1>Extraer y descargar datos hidrometeorológicos</h1>
+        <p class="subtitle">
+          Ingresa una URL del SENAMHI, pulsa el botón y descarga un archivo ZIP con
+          HTML fuente, tablas extraídas, archivos descargados y metadatos.
+        </p>
+
+        <form id="extract-form">
+          <label for="url">URL objetivo</label>
+          <input
+            id="url"
+            name="url"
+            type="url"
+            required
+            value="{{ default_url }}"
+            placeholder="https://www.senamhi.gob.pe/main.php?dp=loreto&p=estaciones"
+          />
+
+          <button id="submit-btn" type="submit">Extraer y Descargar</button>
+        </form>
+
+        <div id="status" class="status hidden"></div>
+
+        <div class="tips">
+          <h2>Qué contiene el ZIP</h2>
+          <ul>
+            <li><strong>pages/</strong>: una carpeta por página visitada.</li>
+            <li><strong>tables/</strong>: CSV generados desde tablas HTML o DOM renderizado.</li>
+            <li><strong>downloads/</strong>: archivos detectados o descargados desde la web.</li>
+            <li><strong>metadata/manifest.json</strong>: resumen de la extracción.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <script src="{{ url_for('static', path='/app.js') }}"></script>
+  </body>
+</html>
