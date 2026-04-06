@@ -1,38 +1,46 @@
-# Extractor automatizado de datos hidrometeorológicos de SENAMHI
+# 🌦️ Extractor automatizado de datos hidrometeorológicos de SENAMHI
 
-Aplicación web desarrollada con **FastAPI** que permite ingresar una URL del dominio `senamhi.gob.pe`, rastrear páginas relacionadas, extraer datos hidrometeorológicos y generar un archivo `.zip` con la información organizada de forma estructurada.
+Aplicación web desarrollada con **FastAPI** para extraer información hidrometeorológica desde páginas del dominio **SENAMHI** (`senamhi.gob.pe`), procesar contenido estático y dinámico, y generar un archivo `.zip` con los resultados organizados automáticamente.
 
-## Descripción
+---
 
-Este proyecto automatiza la recolección de información desde páginas del portal del **SENAMHI**. Está diseñado para procesar tanto contenido estático como dinámico, identificar tablas y archivos descargables, y empaquetar todos los resultados en un único archivo comprimido para su posterior análisis o almacenamiento.
+## 📖 Descripción
 
-## Características principales
+Este proyecto automatiza la recolección de datos desde el portal de **SENAMHI**, permitiendo rastrear páginas relacionadas, extraer tablas, descargar archivos enlazados y capturar respuestas de red cuando la información se carga dinámicamente.
 
-- Interfaz web simple e intuitiva con una URL precargada.
-- Validación de URLs para asegurar que pertenezcan al dominio permitido: `senamhi.gob.pe`.
+La aplicación está pensada como una solución práctica para centralizar datos hidrometeorológicos en un formato reutilizable, ordenado y fácil de analizar.
+
+---
+
+## ✨ Características principales
+
+- Interfaz web sencilla e intuitiva.
+- Validación de URLs para permitir únicamente enlaces del dominio `senamhi.gob.pe`.
 - Descarga del HTML fuente de la página principal y de páginas relacionadas.
 - Extracción de tablas HTML y conversión a archivos `.csv`.
-- Descarga automática de archivos enlazados, incluyendo formatos como:
+- Descarga automática de archivos enlazados, como:
   - `.csv`
   - `.xls`
   - `.xlsx`
   - `.pdf`
   - `.json`
 - Soporte para contenido dinámico mediante **Playwright**.
-- Captura de respuestas de red durante la navegación automatizada (`JSON`, `CSV`, `XML`, etc.).
-- Generación de un archivo `.zip` con la información organizada por carpetas.
+- Captura de respuestas de red durante la navegación automatizada.
+- Generación de un archivo `.zip` con toda la información organizada por carpetas.
 
-## Estructura de salida
+---
 
-El archivo `.zip` generado incluye una estructura similar a la siguiente:
+## 🧰 Tecnologías utilizadas
 
-- `pages/`: contiene una carpeta por cada página procesada.
-- `metadata/manifest.json`: resume la ejecución realizada.
-- `tables/`: almacena las tablas extraídas en formato `.csv`.
-- `downloads/`: incluye los archivos descargados desde los enlaces detectados.
-- `dynamic/network/`: guarda respuestas capturadas durante la navegación automatizada.
+- **FastAPI** — Framework principal para la API y la interfaz web.
+- **HTTPX** — Cliente HTTP para obtener contenido estático.
+- **BeautifulSoup** — Procesamiento y análisis de HTML.
+- **Playwright** — Automatización del navegador para renderizar contenido dinámico.
+- **Uvicorn** — Servidor ASGI para ejecutar la aplicación.
 
-## Arquitectura del proyecto
+---
+
+## 📁 Estructura del proyecto
 
 ```text
 senamhi_app/
@@ -50,85 +58,211 @@ senamhi_app/
 │       └── index.html
 ├── requirements.txt
 └── README.md
-Tecnologías utilizadas
-FastAPI: framework principal para la API y la interfaz web.
-HTTPX: cliente HTTP para recuperar contenido estático.
-BeautifulSoup: análisis y extracción de contenido HTML.
-Playwright: automatización del navegador para renderizar contenido dinámico.
-Uvicorn: servidor ASGI para ejecutar la aplicación.
-Instalación
-1. Clonar el repositorio
+```
+
+---
+
+## 📦 Estructura de salida
+
+El archivo `.zip` generado contiene una estructura similar a esta:
+
+```text
+output.zip
+├── pages/
+├── metadata/
+│   └── manifest.json
+├── tables/
+├── downloads/
+└── dynamic/
+    └── network/
+```
+
+### Contenido de cada carpeta
+
+- **`pages/`**: guarda una carpeta por cada página procesada.
+- **`metadata/manifest.json`**: contiene un resumen de la ejecución.
+- **`tables/`**: almacena las tablas extraídas en formato `.csv`.
+- **`downloads/`**: incluye los archivos descargados desde los enlaces detectados.
+- **`dynamic/network/`**: guarda respuestas capturadas durante la navegación automatizada, como `JSON`, `CSV` o `XML`.
+
+---
+
+## ⚙️ Instalación
+
+### 1. Clonar el repositorio
+
+```bash
 git clone <URL_DEL_REPOSITORIO>
 cd senamhi_app
-2. Crear y activar el entorno virtual
+```
+
+### 2. Crear y activar el entorno virtual
+
+#### En Linux / macOS
+
+```bash
 python -m venv .venv
 source .venv/bin/activate
-En Windows:
+```
+
+#### En Windows
+
+```bash
 .venv\Scripts\activate
-3. Instalar dependencias
+```
+
+### 3. Instalar dependencias
+
+```bash
 pip install -r requirements.txt
-4. Instalar Chromium para Playwright
+```
+
+### 4. Instalar Chromium para Playwright
+
+```bash
 playwright install chromium
-Ejecución local
-Inicia el servidor con:
+```
+
+---
+
+## ▶️ Ejecución local
+
+Inicia el servidor con el siguiente comando:
+
+```bash
 uvicorn app.main:app --reload
+```
+
 Luego abre en tu navegador:
+
+```text
 http://127.0.0.1:8000
-Uso de la aplicación
-Ingresa una URL válida del portal de SENAMHI.
-Haz clic en Extraer y Descargar.
-La aplicación procesará la información disponible.
-Al finalizar, se descargará automáticamente un archivo .zip con los resultados.
-Endpoints disponibles
-Interfaz web
+```
+
+---
+
+## 🚀 Uso de la aplicación
+
+1. Ingresa una URL válida del portal de **SENAMHI**.
+2. Haz clic en **Extraer y Descargar**.
+3. La aplicación procesará la página y los recursos relacionados.
+4. Al finalizar, se descargará automáticamente un archivo `.zip` con los resultados.
+
+---
+
+## 🔌 Endpoints disponibles
+
+### Interfaz web
+
+```http
 GET /
-Extracción desde formulario web
+```
+
+### Extracción desde formulario web
+
+```http
 POST /extract
-Extracción mediante API
+```
+
+### Extracción mediante API
+
+```http
 POST /api/extract
-Ejemplo de uso con curl
+```
+
+---
+
+## 💻 Ejemplo de uso con `curl`
+
+```bash
 curl -X POST http://127.0.0.1:8000/api/extract \
   -H "Content-Type: application/json" \
   -d '{"url":"https://www.senamhi.gob.pe/main.php?dp=loreto&p=estaciones"}' \
   --output senamhi_export.zip
-Funcionamiento general
+```
 
-El sistema utiliza un enfoque híbrido para maximizar la extracción de datos:
+---
 
-Contenido estático: se procesa usando HTTPX y BeautifulSoup.
-Contenido dinámico: si la página presenta elementos como botones de búsqueda, mensajes de carga o datos renderizados por JavaScript, se utiliza Playwright para simular la navegación y capturar las respuestas generadas por la página.
+## 🧠 Funcionamiento general
 
-Este enfoque permite recuperar información incluso cuando los datos no están disponibles directamente en el HTML inicial.
+La aplicación utiliza un enfoque híbrido para maximizar la extracción de datos:
 
-Consideraciones técnicas
-Algunas páginas índice del portal de SENAMHI no contienen datos tabulares directamente, sino enlaces hacia otras secciones.
-Varias vistas de monitoreo hidrológico cargan la información de forma dinámica.
-El uso de Playwright como mecanismo complementario mejora la cobertura de extracción en escenarios donde el scraping tradicional no es suficiente.
-Recomendaciones para producción
+### Contenido estático
+
+Se procesa usando:
+
+- **HTTPX**
+- **BeautifulSoup**
+
+Esto permite recuperar el HTML fuente, localizar tablas y detectar archivos enlazados.
+
+### Contenido dinámico
+
+Cuando una página depende de JavaScript para mostrar información, la aplicación utiliza **Playwright** para:
+
+- renderizar la página,
+- interactuar con elementos visibles,
+- capturar respuestas de red,
+- descargar recursos generados dinámicamente.
+
+Este enfoque resulta útil en páginas que muestran mensajes como:
+
+- `CSV`
+- `Buscar`
+- `Cargando Información...`
+
+---
+
+## 📝 Consideraciones técnicas
+
+- Algunas páginas índice del portal de **SENAMHI** no contienen datos tabulares directamente, sino enlaces a otras secciones.
+- Varias vistas de monitoreo hidrológico cargan información de forma dinámica.
+- El uso de **Playwright** como complemento del scraping tradicional mejora la cobertura de extracción.
+
+---
+
+## 🛡️ Recomendaciones para producción
 
 Antes de desplegar esta aplicación en un entorno productivo, se recomienda incorporar:
 
-Rate limiting para controlar la frecuencia de solicitudes.
-Caché para evitar consultas repetitivas innecesarias.
-Logs estructurados para facilitar monitoreo y trazabilidad.
-Manejo de errores y reintentos más robusto.
-Validaciones adicionales de entrada y salida.
-Mejoras futuras
-Barra de progreso en tiempo real mediante WebSockets.
-Cola de trabajos para extracciones pesadas o concurrentes.
-Filtros por fecha, hora, región o tipo de estación.
-Persistencia de resultados en PostgreSQL.
-Integración con almacenamiento externo como S3 o MinIO.
-Pruebas automatizadas del scraper mediante respuestas simuladas.
-Exportación adicional a formatos como Excel (.xlsx).
-Nota legal y operativa
+- **rate limiting** para controlar la frecuencia de solicitudes,
+- **caché** para evitar consultas repetidas,
+- **logs estructurados** para facilitar monitoreo y trazabilidad,
+- **manejo de errores y reintentos** más robusto,
+- **validaciones adicionales** de entrada y salida.
 
-Antes de utilizar este scraper en producción, es importante revisar los términos de uso del sitio web de SENAMHI, así como sus políticas de acceso y límites razonables de consulta.
+---
 
-Se recomienda implementar tiempos de espera, reintentos controlados y una frecuencia prudente de acceso para evitar sobrecargar el portal o incumplir restricciones del servicio.
+## 🔮 Mejoras futuras
 
-Licencia
+- [ ] Barra de progreso en tiempo real con **WebSockets**
+- [ ] Cola de trabajos para extracciones pesadas
+- [ ] Filtros por fecha, hora, región o tipo de estación
+- [ ] Persistencia en **PostgreSQL**
+- [ ] Integración con almacenamiento externo como **S3** o **MinIO**
+- [ ] Pruebas automatizadas del scraper
+- [ ] Exportación adicional a **Excel (`.xlsx`)**
 
-Este proyecto puede distribuirse bajo la licencia que definas para tu repositorio. Por ejemplo:
+---
 
+## ⚠️ Nota legal y operativa
+
+Antes de utilizar este scraper en producción, es importante revisar los términos de uso del portal de **SENAMHI**, así como sus políticas de acceso y límites razonables de consulta.
+
+Se recomienda aplicar tiempos de espera, reintentos moderados y una frecuencia prudente de solicitudes para evitar sobrecargar el servicio.
+
+---
+
+## 📄 Licencia
+
+Este proyecto puede distribuirse bajo la licencia que definas para tu repositorio, por ejemplo:
+
+```text
 MIT License
+```
+
+---
+
+## 👨‍💻 Autor
+
+Proyecto desarrollado para la extracción automatizada de datos hidrometeorológicos desde el portal web de **SENAMHI**.
