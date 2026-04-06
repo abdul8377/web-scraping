@@ -245,24 +245,3 @@ Antes de desplegar esta aplicación en un entorno productivo, se recomienda inco
 
 ---
 
-## ⚠️ Nota legal y operativa
-
-Antes de utilizar este scraper en producción, es importante revisar los términos de uso del portal de **SENAMHI**, así como sus políticas de acceso y límites razonables de consulta.
-
-Se recomienda aplicar tiempos de espera, reintentos moderados y una frecuencia prudente de solicitudes para evitar sobrecargar el servicio.
-
----
-
-## 📄 Licencia
-
-Este proyecto puede distribuirse bajo la licencia que definas para tu repositorio, por ejemplo:
-
-```text
-MIT License
-```
-
----
-
-## 👨‍💻 Autor
-
-Proyecto desarrollado para la extracción automatizada de datos hidrometeorológicos desde el portal web de **SENAMHI**.
