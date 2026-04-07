@@ -1,0 +1,44 @@
+{
+  "url": "https://www.senamhi.gob.pe/?&p=cambio-climatico",
+  "depth": 1,
+  "status": "ok",
+  "title": "SENAMHI - Cambio Climatico",
+  "next_links": [
+    "https://www.senamhi.gob.pe/?&p=aviso-meteorologico-historico",
+    "https://www.senamhi.gob.pe/?&p=cambio-climatico",
+    "https://www.senamhi.gob.pe/?&p=funcionarios",
+    "https://www.senamhi.gob.pe/?&p=sinoptica",
+    "https://www.senamhi.gob.pe/pdf/estudios/PublicacionesDMA/2007/SDWP_Future_Climate.pdf",
+    "https://www.senamhi.gob.pe/pdf/estudios/PublicacionesDMA/2009/RPGA_rew_108-124avalos.pdf",
+    "https://www.senamhi.gob.pe/pdf/estudios/PublicacionesDMA/2011/asr-6-219-2011.pdf",
+    "https://www.senamhi.gob.pe/pdf/estudios/PublicacionesDMA/2011/chapter7_ClimateChange.pdf",
+    "https://www.senamhi.gob.pe/usr/cmn/pdf/PRAA_resu_tec_Escenarios_2100_MANTARO.pdf",
+    "https://www.senamhi.gob.pe/usr/cmn/pdf/PRAA_resu_tec_escenarios_2100_URUBAMBA.pdf",
+    "https://www.senamhi.gob.pe/usr/cmn/pdf/PROCLIM_09.pdf",
+    "https://www.senamhi.gob.pe/usr/cmn/pdf/Resumen_Cuenca_Mayo.pdf",
+    "https://www.senamhi.gob.pe/usr/cmn/pdf/Resumen_Cuenca_Mayo_ingles.pdf",
+    "https://www.senamhi.gob.pe/usr/cmn/pdf/Resumen_Nacional.pdf",
+    "https://www.senamhi.gob.pe/usr/cmn/pdf/Resumen_Nacional_Ingles.pdf",
+    "https://www.senamhi.gob.pe/usr/cmn/pdf/Resumen_Santa.pdf",
+    "https://www.senamhi.gob.pe/usr/cmn/pdf/Resumen_Santa_ingles_20.pdf",
+    "https://www.senamhi.gob.pe/usr/cmn/proclim/map_caract_Clima_PIURA.rar"
+  ],
+  "downloads": [
+    "downloads\\static\\PROCLIM_proclim_piura.pdf",
+    "downloads\\static\\PROCLIM_01.pdf",
+    "downloads\\static\\PROCLIM_02.pdf",
+    "downloads\\static\\PROCLIM_03.pdf",
+    "downloads\\static\\PROCLIM_04.pdf",
+    "downloads\\static\\PROCLIM_05.pdf",
+    "downloads\\static\\PROCLIM_06.pdf",
+    "downloads\\static\\PROCLIM_07.pdf",
+    "downloads\\static\\PROCLIM_08.pdf",
+    "downloads\\static\\PROCLIM_09.pdf"
+  ],
+  "static_tables": [
+    "tables\\static\\static_table_01.csv"
+  ],
+  "dynamic_tables": [],
+  "captured_network_files": [],
+  "errors": []
+}

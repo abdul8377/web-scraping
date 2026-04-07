@@ -1,0 +1,28 @@
+{
+  "url": "https://www.senamhi.gob.pe/?&p=sinoptica",
+  "depth": 1,
+  "status": "ok",
+  "title": "SENAMHI - Sinoptica",
+  "next_links": [
+    "https://www.senamhi.gob.pe/?&p=aviso-meteorologico-historico",
+    "https://www.senamhi.gob.pe/?&p=cambio-climatico",
+    "https://www.senamhi.gob.pe/?&p=funcionarios",
+    "https://www.senamhi.gob.pe/?&p=sinoptica"
+  ],
+  "downloads": [
+    "downloads\\static\\02244SENA-4265.pdf",
+    "downloads\\static\\02249SENA-3301.zip",
+    "downloads\\static\\02244SENA-4264.pdf",
+    "downloads\\static\\02249SENA-3300.zip",
+    "downloads\\static\\02244SENA-4263.pdf",
+    "downloads\\static\\02249SENA-3299.zip",
+    "downloads\\static\\02244SENA-4262.pdf",
+    "downloads\\static\\02249SENA-3298.zip",
+    "downloads\\static\\02244SENA-4261.pdf",
+    "downloads\\static\\02249SENA-3297.zip"
+  ],
+  "static_tables": [],
+  "dynamic_tables": [],
+  "captured_network_files": [],
+  "errors": []
+}
